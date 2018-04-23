@@ -1,0 +1,3 @@
+#下面是gitignore文件的内容
+#忽略的文件如下
+/node_modules/*
