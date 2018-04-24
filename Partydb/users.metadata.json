@@ -1,0 +1,1 @@
+{"options":{},"indexes":[{"v":2,"key":{"_id":1},"name":"_id_","ns":"Party.users"},{"v":2,"unique":true,"key":{"idCard":1},"name":"idCard_1","ns":"Party.users","background":true}],"uuid":"81137f7af78c4d828a3a165cb2b96975"}
