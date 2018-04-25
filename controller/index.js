@@ -10,6 +10,7 @@ const isRevoked = require('./function/isRevoked')
 
 router.use('/news',require('./news'));
 // router.use('/news/get',jwt({ secret: 'zxx'}),require('./news'));
+router.use('/upload',require('./upload/qiniu'));   //七牛token
 router.use('/carousels', require('./carousels'));
 router.use('/login', require('./login'));
 router.use('/revise', jwtVerify,require('./revisePwd'));
