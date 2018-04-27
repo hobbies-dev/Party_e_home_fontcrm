@@ -48,7 +48,7 @@ router.post('/update',(req, res, next) => {
 
     let userToken = req.query.token || req.headers.token
     let id = req.user.userId;
-    let {idCard,  avatar, userName, homeAddr, workAddr, nation, weChat, qq, sex, edu, position, salary, joinTime, payTime,status, level} = req.body
+    let {idCard,  avatar, userName, homeAddr, workAddr, nation, weChat, qq, sex, edu, position, salary, joinTime, payTime,status} = req.body
 
     jwt.verify(userToken, tokenConfig.secret, (err, decode) => {
         if(err){
