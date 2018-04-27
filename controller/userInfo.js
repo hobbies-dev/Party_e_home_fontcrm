@@ -44,10 +44,11 @@ router.post('/update',(req, res, next) => {
     //身份证号验证
     let regId = /(^\d{15}$)|(^\d{18}$)|(^\d{17}(\d|X|x)$)/
     //密码验证
-    var regPwd =/^(?![0-9]+$)(?![a-zA-Z]+$)[0-9A-Za-z]{3,16}$/
+    // var regPwd =/^(?![0-9]+$)(?![a-zA-Z]+$)[0-9A-Za-z]{3,16}$/
 
     let userToken = req.query.token || req.headers.token
-    let {id, idCard, pwd, avatar, userName, homeAddr, workAddr, nation, weChat, qq, sex, edu, position, salary, joinTime, payTime,status, level} = req.body
+    let id = req.user.userId;
+    let {idCard,  avatar, userName, homeAddr, workAddr, nation, weChat, qq, sex, edu, position, salary, joinTime, payTime,status, level} = req.body
 
     jwt.verify(userToken, tokenConfig.secret, (err, decode) => {
         if(err){
@@ -67,14 +68,14 @@ router.post('/update',(req, res, next) => {
                 ret:false
             })
             return
-        }else if(!pwd || validator.isEmpty(pwd.trim() ) || !regPwd.test(pwd) ){
-            res.json({
-                data:'密码不合法',
-                code:400,
-                msg:'密码不合法',
-                ret:false
-            })
-            return
+        // }else if(!pwd || validator.isEmpty(pwd.trim() ) || !regPwd.test(pwd) ){
+        //     res.json({
+        //         data:'密码不合法',
+        //         code:400,
+        //         msg:'密码不合法',
+        //         ret:false
+        //     })
+        //     return
         }else if(!id){
             res.json({
                 data:'未找到指定的id',
@@ -85,9 +86,8 @@ router.post('/update',(req, res, next) => {
             return
         }else{
             users.update({_id:id},{$set:{
-                id,
                 idCard,
-                pwd:md5(pwd),
+                // pwd:md5(pwd),
                 avatar,
                 userName,
                 homeAddr,
@@ -102,10 +102,10 @@ router.post('/update',(req, res, next) => {
                 joinTime,
                 payTime,
                 status,
-                level} }).then( data => {
+               } }).then( data => {
                 //积分
                 if(req.user){
-                    scores.create({userId:req.user.data.userId, type:2, scoreName:'完善个人信息', score:2})
+                    scores.create({userId:req.user.userId, type:2, scoreName:'完善个人信息', score:2})
                 }
 
                 res.json({

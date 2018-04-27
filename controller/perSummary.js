@@ -119,7 +119,7 @@ router.post('/giveMark', (req, res, next) => {
     let {id, content} = req.body;   //id 为他人的 个人总结的_id
     let userId = req.user.userId;   //评论人的id
     let userName = req.user.userName;   //评论人的名字
-    let branchName = req.user.branchName;   //评论人的名字
+    let branchName = req.user.branchName;   //评论人所在的党支部
 
     perSummary.findOne({_id: id, common:{$elemMatch:{userId} } }).then( dt => {   //只能评论一次
         if(dt == null){

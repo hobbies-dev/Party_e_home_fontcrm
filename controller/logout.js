@@ -1,8 +1,8 @@
 const {Router} = require('express');
 const router = Router();
 const users = require('../database/model/users');
-const jwt = require('jsonwebtoken');
-const tokenConfig = require('../config/tokenConfig');
+// const jwt = require('jsonwebtoken');
+// const tokenConfig = require('../config/tokenConfig');
 
 //退出登录
 router.get('/', (req, res, next) => {
