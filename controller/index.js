@@ -16,7 +16,7 @@ router.use('/login', require('./login'));
 router.use('/revise', jwtVerify,require('./revisePwd'));
 router.use('/scores', jwtVerify, require('./scores'));
 // router.use('/userInfo',jwt({ secret: 'zxx'}));   //这样就是jwt的中间件
-router.use('/userInfo',require('./userInfo'));   //或者写成这样
+router.use('/userInfo',jwtVerify,require('./userInfo'));   //或者写成这样
 router.use('/review', jwtVerify, require('./review'));
 router.use('/branches', jwtVerify, require('./branches'));
 router.use('/reports', jwtVerify, require('./reports'));
