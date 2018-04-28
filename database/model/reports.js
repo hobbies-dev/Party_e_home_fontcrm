@@ -19,6 +19,6 @@ const reportSchema = mongoose.Schema({
     type:{   //用来区别是心得总结还是思想汇报
         type:String  // 1 心得总结  2 思想汇报
     }
-},{versionKey:false,timestamp:{createAt:'createTime',updateAt:'updateTime'} });
+},{versionKey:false,timestamps:{createdAt:'createTime',updatedAt:'updateTime'} });
 
 module.exports = mongoose.model('reports', reportSchema, 'reports')

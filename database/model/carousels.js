@@ -12,6 +12,6 @@ var carouselsSchema = mongoose.Schema({
         type:Date,
         default:Date.now()
     }
-},{versionKey:false})
+},{versionKey:false,timestamps:{createdAt:'createTime', updatedAt:'updateTime'}})
 
 module.exports = mongoose.model('carousels',carouselsSchema,'carousels')

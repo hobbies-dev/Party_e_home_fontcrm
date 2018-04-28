@@ -94,6 +94,6 @@ const usersSchema = new mongoose.Schema({
         type:String,
         default:'信息工程学院学生流动党支部（北京）'
     }
-},{versionKey:false,timeStamp:{createAt:'createTime',updateAt:'updateTime'}}); //MongoDB自动生成和管理createTime和updateTime字段
+},{versionKey:false,timestamps:{createdAt:'createTime',updatedAt:'updateTime'}}); //MongoDB自动生成和管理createTime和updateTime字段
 //在每次更新文档时自动更新updateTime字段的值
 module.exports = mongoose.model('users',usersSchema,'users')

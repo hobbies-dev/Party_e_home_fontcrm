@@ -36,6 +36,6 @@ const perSummary = new mongoose.Schema({
             default: 0
         }
     }]
-}, {versionKey: false, timestamps: {createAt: "createTime", updateAt: "updateTime"}})
+}, {versionKey: false, timestamps: {createdAt: "createTime", updateAt: "updateTime"}})
 
 module.exports = mongoose.model("personalSummary", perSummary, 'personalSummary')

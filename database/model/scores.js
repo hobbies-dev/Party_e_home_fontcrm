@@ -13,6 +13,6 @@ const scoresSchema = mongoose.Schema({
     score:{
         type:String
     }
-},{versionKey:false,timestamp:{createAt:'createTime',updateAt:'updateTime'} });
+},{versionKey:false,timestamps:{createdAt:'createTime',updatedAt:'updateTime'} });
 
 module.exports = mongoose.model('scores', scoresSchema, 'scores');

@@ -31,6 +31,6 @@ var interSchema = mongoose.Schema({
     content: {      //留言内容
         type: String
     }
-}, {versionKey: false, timestamp: {createAt: "createTime", updateAt: "updateTime"}})
+}, {versionKey: false, timestamps: {createdAt: "createTime", updatedAt: "updateTime"}})
 
 module.exports = mongoose.model('interaction',interSchema,'interaction');

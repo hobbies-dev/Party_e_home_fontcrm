@@ -4,6 +4,6 @@ const branch = new mongoose.Schema({
     branchName: {
         type: String
     }
-}, {versionKey: false, timestamps: {createAt: "createTime", updateAt: "updateTime"}})
+}, {versionKey: false, timestamps: {createdAt: "createTime", updatedAt: "updateTime"}})
 
 module.exports = mongoose.model("branches", branch, "branches")

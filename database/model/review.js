@@ -13,6 +13,6 @@ const reviewSchema = mongoose.Schema({
         type:Number,   //民主评议的状态 0 未进行， 1进行中， 2已结束
         default:0
     }
-},{versionKey:false,timestamp:{createAt:'createTime',updateAt:'updateTime'}});
+},{versionKey:false,timestamps:{createdAt:'createTime',updatedAt:'updateTime'}});
 
 module.exports = mongoose.model('review', reviewSchema, 'review');
